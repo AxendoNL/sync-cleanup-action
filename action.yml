@@ -1,0 +1,11 @@
+name: 'Cleanup synchronize task files and directories'
+description: 'Cleanup synchronize task files and directories'
+runs:
+  using: "composite"
+  steps:
+    - name: Delete local cloud repository folder
+      run: if (Test-Path '../cloud-repository') { Remove-Item '../cloud-repository' -Recurse -Force }
+      shell: powershell
+    - name: Delete kudusync manifest file
+      run: Remove-Item '../kudusyncmanifest.txt' -Force
+      shell: powershell
