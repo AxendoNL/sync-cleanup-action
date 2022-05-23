@@ -7,5 +7,5 @@ runs:
       run: if (Test-Path '../cloud-repository') { Remove-Item '../cloud-repository' -Recurse -Force }
       shell: powershell
     - name: Delete kudusync manifest file
-      run: Remove-Item '../kudusyncmanifest.txt' -Force
+      run: if (Test-Path '../kudusyncmanifest.txt') { Remove-Item '../kudusyncmanifest.txt' }
       shell: powershell
