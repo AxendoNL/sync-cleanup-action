@@ -9,3 +9,6 @@ runs:
     - name: Delete kudusync manifest file
       run: if (Test-Path '../kudusyncmanifest.txt') { Remove-Item '../kudusyncmanifest.txt' }
       shell: powershell
+    - name: Delete local cloud artifact folder
+      run: if (Test-Path '../cloud-artifact') { Remove-Item '../cloud-artifact' -Recurse -Force }
+      shell: powershell
